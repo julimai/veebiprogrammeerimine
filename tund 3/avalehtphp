@@ -1,0 +1,71 @@
+<?php
+//muutujad
+$myName = "Julika";
+$myFamilyName = "Maiste";
+$monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juuli", "august", "september", "oktoober", "november", "detsember"];
+
+//var_dump($monthNamesEt);
+
+//echo $monthNamesEt[3];
+
+$monthNow = $monthNamesEt[date("n") -1];
+
+$hourNow = date("H");
+
+//echo $hourNow
+//võrdlen kellaaega ja annan hinnangu mis päevaosaga on tegemist. (< > == >= <= != )
+
+$partOfDay = "";
+
+if ($hourNow < 8 ){
+$partOfDay = "varajane hommik";}
+//echo $partOfDay;
+if ($hourNow >= 8 and $hourNow < 16 ){
+$partOfDay = "koolipäev";
+}	
+if ($hourNow > 16 ) {
+$partOfDay = "vaba aeg" ;}
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Julika veebiprogrammeerimise asjad</title>
+</head>
+<body>
+  <h1>
+  <?php
+  echo $myName ." ".$myFamilyName;
+  ?>
+  </h1>
+  <p>See veebileht on loodud õppetöö raames ning ei sisalda tõsiseltvõetavat sisu.</p>
+  <p>Esimene katse kodust muudatust teha.</p>
+  <h2>Pealkirja katsetus</h2>
+ 
+  <p>Teine katsetus mitu päeva hiljem kodust tunneli kaudu muudatust teha.</p>
+  <?php
+
+  echo "<p>Täna on ";
+  echo date("d.". $monthNow. date(" Y")) . ", käes on " . $partOfDay;
+  echo ".</p>";
+  echo "<p>Lehe avamise hetkel oli kell " .date("H:i:s") .".</p>";
+  ?>
+  
+  
+	  </form>
+	<?php
+		if ( $ageNote != ""){
+		echo $ageNote;
+		}
+		if ($yearsofmylife !=""){
+			echo "\n <h3> Olete elanud järgmistel aastatel</h3> \n" . $yearsofmylife;
+		}
+	?>
+	  
+	  
+</body>
+
+</html>
