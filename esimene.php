@@ -8,7 +8,7 @@ $monthNamesEt = ["jaanuar", "veebruar", "märts", "aprill", "mai", "juuni", "juu
 
 //echo $monthNamesEt[3];
 
-$monthNow = $monthNamesEt[date("n") -1];
+$monthNow = $monthNamesEt[date("n")-1];
 
 $hourNow = date("H");
 
@@ -63,7 +63,7 @@ if ( isset($_POST["birthYear"]) and $_POST["birthYear"] !=0 );
 	$myAge = date("Y") - $_POST["birthYear"];
 	$mybirthYear = $_POST["birthYear"];
 //echo $myAge;
-	$ageNote = "<p> Te olete umbes" . $myAge ." aastat vana.</p>";
+	$ageNote = "<p> Te olete umbes " . $myAge ." aastat vana.</p>";
 	
 	$yearsofmylife = "<ol> \n";
 	$yearnow = date("Y");
@@ -102,7 +102,7 @@ echo "ha-";} */
   <?php
   echo "<p>Kõige esimene PHP abil väljastatud sõnum</p>";
   echo "<p>Täna on ";
-  echo date("d.". $monthNow. date(" Y")) . ", käes on " . $partOfDay;
+  echo date("d. ". $monthNow. date(" Y")) . ", käes on " . $partOfDay;
   echo ".</p>";
   echo "<p>Lehe avamise hetkel oli kell " .date("H:i:s") .".</p>";
   ?>
