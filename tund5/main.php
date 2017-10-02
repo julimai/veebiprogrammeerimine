@@ -1,9 +1,21 @@
 <?php
+require ("functions.php");
+if(isset($_SESSION["userid"])){
+	header("Location: login.php");
+	exit();
+}
+	
+	//väljalogimine
+	if(isset($_GET["logout"])){
+		session_destroy(); //lõpetab sessiooni
+		header("Location: login.php");
+	}
+
 $picsDir = "../../pics/";
 $picFiles = [];
 $picFileTypes = ["jpg", "jpeg", "png", "gif"];
 
-$allFiles = array_slice (scandir($picsDir), 2);
+$allFiles = array_slice(scandir($picsDir), 2);
 
 foreach ($allFiles as $file){
 	$fileType = pathinfo($file, PATHINFO_EXTENSION);
@@ -16,7 +28,9 @@ foreach ($allFiles as $file){
 //$picFiles = ;
 $fileCount = count($picFiles);
 $picNumber = mt_rand(0, ($fileCount - 1));
+echo $picNumber;
 $picFile = $picFiles[$picNumber];
+
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +45,8 @@ $picFile = $picFiles[$picNumber];
   </h1>
   <p>See veebileht on loodud õppetöö raames ning ei sisalda tõsiseltvõetavat sisu.</p>
  
-  
+  <p> <a href="?logout=1">Logi välja</a> </p>
+  <p> <a href="usersinfo.php">Info kasutajate kohta</a> </p>
   <h1>Pilt ülikoolist</h1>
   <img src="<?php echo $picsDir .$picFile; ?>" alt="Tallinna Ülikool">
   
